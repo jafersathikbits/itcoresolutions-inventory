@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Shared UI building blocks. Views use these classes instead of repeating
+ * long utility strings, so the whole app stays visually consistent.
+ */
+@layer base {
+    html { -webkit-tap-highlight-color: transparent; }
+    body { @apply bg-slate-100 text-slate-800; }
+    [x-cloak] { display: none !important; }
+}
+
+@layer components {
+    /* ---------- Layout ---------- */
+    .page { @apply px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full; }
+    .page-narrow { @apply px-4 py-6 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full; }
+    .page-header { @apply flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between; }
+    .page-title { @apply text-xl font-semibold text-slate-900 leading-tight; }
+    .page-subtitle { @apply mt-1 text-sm text-slate-500; }
+    .page-actions { @apply flex flex-wrap items-center gap-2; }
+
+    /* ---------- Cards ---------- */
+    .card { @apply bg-white rounded-xl border border-slate-200 shadow-sm; }
+    .card-body { @apply p-5 sm:p-6; }
+    .card-header { @apply flex items-center justify-between gap-3 px-5 sm:px-6 py-4 border-b border-slate-100; }
+    .card-title { @apply text-base font-semibold text-slate-900; }
+    .card-subtitle { @apply text-sm text-slate-500; }
+
+    .stat-card { @apply card p-4 sm:p-5 flex flex-col gap-3 transition hover:shadow-md hover:border-slate-300; }
+    .stat-icon { @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg; }
+    .stat-label { @apply text-xs font-medium uppercase tracking-wide text-slate-500; }
+    .stat-value { @apply mt-0.5 text-2xl font-bold text-slate-900 tabular-nums; }
+
+    /* ---------- Buttons ---------- */
+    .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition
+                  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap; }
+    .btn-sm { @apply px-3 py-1.5 text-xs; }
+    .btn-primary { @apply bg-brand-600 text-white shadow-sm hover:bg-brand-700 focus-visible:ring-brand-500; }
+    .btn-secondary { @apply bg-white text-slate-700 border border-slate-300 shadow-sm hover:bg-slate-50 focus-visible:ring-brand-500; }
+    .btn-ghost { @apply text-slate-600 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-brand-500; }
+    .btn-danger { @apply bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-red-500; }
+    .btn-danger-soft { @apply bg-red-50 text-red-700 hover:bg-red-100 focus-visible:ring-red-500; }
+    .btn-dark { @apply bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-500; }
+
+    /* ---------- Forms ---------- */
+    .form-label { @apply block text-sm font-medium text-slate-700; }
+    .form-input { @apply mt-1 block w-full rounded-lg border-slate-300 text-sm shadow-sm
+                         focus:border-brand-500 focus:ring-brand-500 placeholder:text-slate-400; }
+    .form-help { @apply mt-1 text-xs text-slate-500; }
+    .form-error { @apply mt-1 text-xs text-red-600; }
+    .form-checkbox { @apply rounded border-slate-300 text-brand-600 shadow-sm focus:ring-brand-500; }
+    .form-file { @apply mt-1 block w-full text-sm text-slate-600
+                        file:mr-3 file:rounded-lg file:border-0 file:bg-brand-50 file:px-4 file:py-2
+                        file:text-sm file:font-medium file:text-brand-700 hover:file:bg-brand-100; }
+    .form-actions { @apply flex flex-wrap items-center gap-3 pt-2; }
+
+    /* ---------- Tables ---------- */
+    .table-wrap { @apply overflow-x-auto; }
+    .data-table { @apply min-w-full text-sm; }
+    /* :where() keeps specificity low so utilities like .text-right on a <th> still win */
+    .data-table :where(thead th) { @apply bg-slate-50 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 whitespace-nowrap; }
+    .data-table :where(tbody td) { @apply px-4 py-3 align-middle border-t border-slate-100; }
+    .data-table tbody tr { @apply transition-colors hover:bg-slate-50/70; }
+    .data-table .num { @apply text-right tabular-nums; }
+
+    /* ---------- Badges ---------- */
+    .badge { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium whitespace-nowrap; }
+    .badge-gray { @apply bg-slate-100 text-slate-700; }
+    .badge-green { @apply bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-600/20; }
+    .badge-red { @apply bg-red-50 text-red-700 ring-1 ring-inset ring-red-600/20; }
+    .badge-amber { @apply bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-600/20; }
+    .badge-blue { @apply bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-600/20; }
+    .badge-purple { @apply bg-violet-50 text-violet-700 ring-1 ring-inset ring-violet-600/20; }
+    .badge-indigo { @apply bg-indigo-50 text-indigo-700 ring-1 ring-inset ring-indigo-600/20; }
+
+    /* ---------- Alerts ---------- */
+    .alert { @apply flex items-start gap-3 rounded-lg border px-4 py-3 text-sm; }
+    .alert-success { @apply border-emerald-200 bg-emerald-50 text-emerald-800; }
+    .alert-error { @apply border-red-200 bg-red-50 text-red-800; }
+    .alert-warning { @apply border-amber-200 bg-amber-50 text-amber-800; }
+    .alert-info { @apply border-brand-200 bg-brand-50 text-brand-800; }
+
+    /* ---------- Misc ---------- */
+    .empty-state { @apply flex flex-col items-center justify-center gap-2 py-12 text-center text-sm text-slate-500; }
+    .thumb { @apply rounded-lg object-cover border border-slate-200 bg-slate-100; }
+    .link { @apply font-medium text-brand-700 hover:text-brand-800 hover:underline; }
+    .segmented { @apply inline-flex rounded-lg border border-slate-200 bg-white p-0.5 shadow-sm; }
+    .segmented a { @apply rounded-md px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900; }
+    .segmented a.active { @apply bg-brand-600 text-white shadow-sm hover:text-white; }
+
+    /* ---------- Sidebar ---------- */
+    .nav-item { @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-white; }
+    .nav-item.active { @apply bg-brand-600 text-white shadow-sm; }
+    .nav-item svg { @apply h-5 w-5 shrink-0; }
+    .nav-section { @apply px-3 pt-5 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500; }
+}
