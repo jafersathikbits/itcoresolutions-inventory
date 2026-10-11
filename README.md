@@ -310,4 +310,5 @@ Contributions and suggestions are welcome.
 
 ## License
 
-No standalone `LICENSE` file is currently included in this repository. The `composer.json` metadata declares MIT, but the Laravel skeleton's metadata alone should not be treated as confirmation of the intended license for all project-specific code. Add an appropriate `LICENSE` file before explicitly distributing the project under a particular license.
+This project is licensed under the MIT License.
+See the [LICENSE](LICENSE) file for details.
