@@ -1,0 +1,49 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+auth.json
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Framework-generated files
+/public/build/
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+
+# Local databases and dumps
+/database/*.sqlite
+/database/*.sqlite-*
+*.sql
+*.dump
+
+# Logs, caches, and test artifacts
+*.log
+.phpunit.result.cache
+/.phpunit.cache
+/bootstrap/cache/*.php
+!/bootstrap/cache/.gitignore
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+/.idea/
+/.vscode/
+/.fleet/
+/.nova/
+/.zed/
+.phpactor.json
